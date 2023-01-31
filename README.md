@@ -1,2 +1,7 @@
-# calculadora_v1
-First calculator version developed in html + css and javascript is the first official commit on gitHub platform
+# Calculadora_v1
+
+Tecnologias Utilizadas
+HTML
+CSS
+JAVASCRIPT
+Obrigado por visitar meu repositório! ❤️
