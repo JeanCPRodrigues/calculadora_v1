@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora v1.0</title>
+    <link rel="shortcut icon" href="/img/ico/calculator.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- BASE DO PROJETO -->
+    <main class="hgt-absolute">
+
+        <!-- CALCULADORA VERSAO 1 -->
+        <section class="hgt-absolute">
+
+            <!-- DISPLAY -->
+            <div class="hgt-30-perc">
+                <div class="row g-3 wdt-absolute none-margin none-padding">
+                    <div class="col hgt-absolute none-margin none-padding">
+                        <input id="displayCalculadoraV1" type="text" class="form-control hgt-absolute none-margin none-padding none-border-radius" placeholder="0" aria-label="0" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTOES -->
+            <div class="hgt-70-perc">
+                
+                <!-- BOTOES OPERADORES [%, CE, C, BACKSPACE] -->
+                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                    
+                    <div class="col-3 none-margin none-padding hgt-absolute">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius"><i class="bi bi-percent"></i></button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius">CE</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius">C</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius"><i class="bi bi-backspace"></i></button>
+                    </div>
+
+                </div>
+
+                <!-- BOTOES OPERADORES [1/x, x/2, 2 raiz x, %] -->
+                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius font-expo">½</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius font-expo">x²</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius font-expo">√2</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius">÷</button>
+                    </div>
+                </div>
+
+                <!-- BOTOES OPERADORES [7, 8, 9, *] -->
+                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">7</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">8</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">9</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius">×</button>
+                    </div>
+                </div>
+
+                <!-- BOTOES OPERADORES [4, 5, 6, -] -->
+                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">4</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">5</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">6</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius">—</button>
+                    </div>
+                </div>
+
+                <!-- BOTOES OPERADORES [1, 2, 3, +] -->
+                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">1</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">2</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">3</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-regular btn-light hgt-absolute wdt-absolute none-border-radius">+</button>
+                    </div>
+                </div>
+
+                <!-- BOTOES OPERADORES [+/-, 0, ',', =] -->
+                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">+/-</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">0</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius">,</button>
+                    </div>
+                    <div class="col-3 none-margin none-padding">
+                        <button type="button" class="btn btn-secondary hgt-absolute wdt-absolute none-border-radius">=</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
