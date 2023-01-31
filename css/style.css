@@ -29,7 +29,19 @@
     --height-30-perc: 30%;
     --height-70-perc: 70%;
 
+    --size-space-btn: 2px;
+
+    --border-radius-btn: 5px;
+
+    --padding-input-default: 15px;
+
     /* COLOR */
+    --white-primary: white;
+    --white-secondary: #f3f3f3;
+    --white-contraste: #f6f6f6;
+    --white-contraste-hover: #f1f1f1;
+
+    --black-primary: #343a40;
 
     /* FONT */
     --size-icon-default: 20pt;
@@ -46,10 +58,32 @@ body {
 section {
     width: var(--absolute-perc);
 }
+.section-center {
+    width: 50% !important;
+    height: 90% !important;
+    padding: 5px;
+}
+.section-calc-1 {
+    position: relative;
+}
 
 /* NORMALIZA O MAIN */
 main {
     width: var(--absolute-perc);
+    background: var(--white-secondary);
+}
+.main-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NORMALIZA TODAS AS LISTA */
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 /* WIDTH ABSOLUTE */
@@ -81,6 +115,22 @@ main {
     padding: var(--absolute-zero-size);
 }
 
+/* REMOVER TODOS ESTILOS DE BORDA E BACKGROUD BOOTSTRAP */
+.none-style-backgroud {
+    border: 0px transparent;
+    background: transparent;
+}
+
+/* ESTILO DE ELEMENTO DISABILITADO */
+*:disabled {
+    background: transparent !important;
+}
+
+/* PADDING INPUT DEFAULT */
+.input-padding-default {
+    padding: var(--padding-input-default);
+}
+
 /* REMOVER BORDER DO BOOTSTRAP */
 .none-border-radius {
     border-radius: var(--absolute-zero-size);
@@ -96,7 +146,79 @@ button.btn-regular {
     font-size: var(--size-font-default);
 }
 
+button.btn-primary {
+    background: var(--white-contraste);
+}
+button.btn-primary:hover {
+    background: var(--white-contraste-hover);
+}
+
+/* TEXT DEFAULT */
+.font-default {
+    font-size: var(--size-font-default);
+}
+.font-ajust-display {
+    font-size: 50pt;
+}
+
 /* EXPOENTE CARACTER ESPECIAL */
 .font-expo {
     font-family: 'Cookie', cursive;
+}
+
+/* COR DO BOTAO WHITE */
+.btn-white {
+    background: var(--white-primary);
+}
+
+/* PADDING DEFAULT BOTAO */
+.btn-padding-default {
+    padding: var(--size-space-btn);
+}
+
+/* BORDA DEFAULT BOTAO SELETOR */
+.btn-border-default {
+    border-radius: var(--border-radius-btn);
+}
+
+/* AJUSTE DISPLAY ITEM DE BAIXO PARA CIMA */
+.flex-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+/* ELEMENTOS DA DIREITA PARA ESQUERDA */
+.text-end {
+    text-align: end;
+}
+
+/* MENUBAR */
+
+/* DIV FLUTUANTE DENTRO DO SECTION [MENUBAR] */
+.div-float-top-left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}
+/* LISTA DE CIMA PARA BAIXO [MENUBAR] */
+.menubar-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px 0 10px 10px;
+}
+.menubar-list > li {
+    background: var(--white-contraste);
+    margin: 0 0 10px 0;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+.menubar-list > li:hover {
+    color: var(--white-primary);
+    background: var(--black-primary);
 }
