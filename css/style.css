@@ -42,7 +42,9 @@
     --white-contraste-hover: #f1f1f1;
 
     --black-primary: #343a40;
+    --black-secondary: #494846;
 
+    --gray-primary: #616161;
     /* FONT */
     --size-icon-default: 20pt;
     --size-font-default: 22pt;
@@ -59,12 +61,13 @@ section {
     width: var(--absolute-perc);
 }
 .section-center {
-    width: 50% !important;
+    width: 70% !important;
     height: 90% !important;
     padding: 5px;
 }
 .section-calc-1 {
     position: relative;
+    height: var(--absolute-perc);
 }
 
 /* NORMALIZA O MAIN */
@@ -77,6 +80,85 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: var(--absolute-perc);
+}
+
+/* NORMALIZA DISPLAY MASTER */
+.display-master {
+    height: var(--height-30-perc);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.display-master > div {
+    width: var(--absolute-perc);
+    margin: var(--absolute-zero-size);
+    padding: var(--absolute-zero-size);
+}
+.display-master > div > div {
+    height: var(--absolute-perc);
+    margin: var(--absolute-zero-size);
+    padding: var(--absolute-zero-size);
+}
+.display-master > div > div > input:nth-child(0) {
+    color: var(--gray-primary) !important;
+    border: 0px transparent;
+    background: transparent;
+    font-size: var(--size-font-default);
+    height: var(--absolute-perc);
+    margin: var(--absolute-zero-size);
+    padding: var(--absolute-zero-size);
+    border-radius: var(--absolute-zero-size);
+    padding: var(--padding-input-default);
+    text-align: end;
+    padding: var(--padding-input-default);
+}
+
+/* NORMALIZA DISPLAY BOTOES */
+.btn-master {
+    height: var(--height-70-perc);
+}
+.column-btn {
+    height: calc(100%/6 - 0%);
+    width: var(--absolute-perc);
+    margin: var(--absolute-zero-size);
+    padding: var(--absolute-zero-size);
+}
+.column-btn > div {
+    margin: var(--absolute-zero-size);
+    padding: var(--absolute-zero-size);
+    padding: var(--size-space-btn);
+}
+.column-btn > div > button {
+    font-size: var(--size-font-default);
+    font-size: var(--size-font-default);
+    height: var(--absolute-perc);
+    width: var(--absolute-perc);
+    border-radius: var(--absolute-zero-size);
+    border-radius: var(--border-radius-btn);
+}
+.column-btn > div > button.btn-contraste {
+    background: var(--white-primary)
+}
+.column-btn > div > button:hover {
+    background: var(--white-contraste-hover);
+}
+.column-btn:nth-last-child(1) > div:nth-last-child(1) > button:nth-last-child(1) {
+    background: var(--black-primary);
+    font-size: var(--size-font-default);
+    height: var(--absolute-perc);
+    width: var(--absolute-perc);
+    border-radius: var(--absolute-zero-size);
+    border-radius: var(--border-radius-btn);
+}
+
+/* NORMALIZA MENUBAR */
+.menubar-master {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
 }
 
 /* NORMALIZA TODAS AS LISTA */
@@ -96,17 +178,6 @@ ul {
     height: var(--absolute-perc);
 }
 
-/* HEIGTH COMPLEMENT */
-.hgt-calc-100-per-6 {
-    height: calc(100%/6 - 0%);
-}
-.hgt-30-perc {
-    height: var(--height-30-perc);
-}
-.hgt-70-perc {
-    height: var(--height-70-perc);
-}
-
 /* REMOVER MARGIN E PADDING DO BOOTSTRAP */
 .none-margin {
     margin: var(--absolute-zero-size);
@@ -119,6 +190,8 @@ ul {
 .none-style-backgroud {
     border: 0px transparent;
     background: transparent;
+    text-align: end;
+    padding: var(--padding-input-default);
 }
 
 /* ESTILO DE ELEMENTO DISABILITADO */
@@ -141,18 +214,6 @@ i.bi {
     font-size: var(--size-icon-default);
 }
 
-/* NORMALIZA FONT EXPRESSAO REGULAR */
-button.btn-regular {
-    font-size: var(--size-font-default);
-}
-
-button.btn-primary {
-    background: var(--white-contraste);
-}
-button.btn-primary:hover {
-    background: var(--white-contraste-hover);
-}
-
 /* TEXT DEFAULT */
 .font-default {
     font-size: var(--size-font-default);
@@ -166,27 +227,9 @@ button.btn-primary:hover {
     font-family: 'Cookie', cursive;
 }
 
-/* COR DO BOTAO WHITE */
-.btn-white {
-    background: var(--white-primary);
-}
-
-/* PADDING DEFAULT BOTAO */
-.btn-padding-default {
-    padding: var(--size-space-btn);
-}
-
 /* BORDA DEFAULT BOTAO SELETOR */
 .btn-border-default {
     border-radius: var(--border-radius-btn);
-}
-
-/* AJUSTE DISPLAY ITEM DE BAIXO PARA CIMA */
-.flex-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-direction: column;
 }
 
 /* ELEMENTOS DA DIREITA PARA ESQUERDA */
@@ -194,15 +237,6 @@ button.btn-primary:hover {
     text-align: end;
 }
 
-/* MENUBAR */
-
-/* DIV FLUTUANTE DENTRO DO SECTION [MENUBAR] */
-.div-float-top-left {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 100;
-}
 /* LISTA DE CIMA PARA BAIXO [MENUBAR] */
 .menubar-list {
     display: flex;
@@ -212,11 +246,26 @@ button.btn-primary:hover {
 }
 .menubar-list > li {
     background: var(--white-contraste);
-    margin: 0 0 10px 0;
+    margin: 0 10px 10px 0;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in;
+    display: flex;
+    align-content: space-around;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: fit-content;
+}
+.menubar-list > li > i {
+    margin: 5px;
+}
+.menubar-list > li > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 10px 0 10px;
 }
 .menubar-list > li:hover {
     color: var(--white-primary);

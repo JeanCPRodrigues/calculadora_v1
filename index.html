@@ -14,142 +14,158 @@
 <body>
 
     <!-- BASE DO PROJETO -->
-    <main class="hgt-absolute main-center">
+    <main class="main-center">
 
         <!-- CALCULADORA VERSAO 1 -->
-        <section class="hgt-absolute section-calc-1">
+        <section class="section-calc-1">
 
             <!-- MENUBAR DA CALCULADORA -->
-            <div class="div-float-top-left">
+            <div class="menubar-master">
                 <ul class="menubar-list">
-                    <li class="shadow-sm"><i class="bi bi-calculator-fill"></i></li>
-                    <li class="shadow-sm"><i class="bi bi-brightness-high-fill"></i></li>
-                    <li class="shadow-sm"><i class="bi bi-vr"></i></li>
-                    
+                    <li class="shadow-sm">
+                        <i class="bi bi-calculator-fill"></i>
+                        <div class="d-none">
+                            <span>Tipo Calculadora</span>
+                        </div>
+                    </li>
+                    <li class="shadow-sm d-none">
+                        <i class="bi bi-brightness-high-fill"></i>
+                        <div class="d-none">
+                            <span>Tema Escuro</span>
+                        </div>
+                    </li>
+                    <li class="shadow-sm d-none">
+                        <i class="bi bi-vr"></i>
+                        <div class="d-none">
+                            <span>Ajustar Tamanho</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
             <!-- DISPLAY -->
-            <div class="hgt-30-perc flex-bottom">
-                <div class="row g-3 wdt-absolute none-margin none-padding">
-                    <div class="col hgt-absolute none-margin none-padding">
-                        <input id="displayCalculadoraV1" type="text" class="none-style-backgroud text-end input-padding-default font-default form-control hgt-absolute none-margin none-padding none-border-radius" placeholder="0" aria-label="0" disabled>
+            <div class="display-master">
+
+                <div class="row g-3">
+                    <div class="col">
+                        <input id="displayCalculadoraV1" type="text" class="none-style-backgroud font-default form-control" placeholder="" disabled type-math="+" primary-math="0" secondary-math="0" click-math="0" style="color: var(--gray-primary) !important;">
                     </div>
                 </div>
-                <div class="row g-3 wdt-absolute none-margin none-padding">
-                    <div class="col hgt-absolute none-margin none-padding" disabled>
+                <div class="row g-3">
+                    <div class="col" disabled>
                         <input id="displayHistoryCalculadoraV1" type="text" class="display-calculadora none-style-backgroud text-end input-padding-default font-ajust-display form-control hgt-absolute none-margin none-padding none-border-radius" placeholder="0" value="0" aria-label="0" disabled>
                     </div>
                 </div>
+
             </div>
 
             <!-- BOTOES -->
-            <div class="hgt-70-perc btn-padding-default">
+            <div class="btn-master">
                 
                 <!-- BOTOES OPERADORES [%, CE, C, BACKSPACE] -->
-                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                <div class="row g-3 column-btn">
                     
-                    <div class="col-3 none-margin none-padding hgt-absolute btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="%"><i class="bi bi-percent"></i></button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="%"><i class="bi bi-percent"></i></button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="CE">CE</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="CE">CE</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="C">C</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="C">C</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="BACKSPACE"><i class="bi bi-backspace"></i></button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="BACKSPACE"><i class="bi bi-backspace"></i></button>
                     </div>
 
                 </div>
 
                 <!-- BOTOES OPERADORES [1/x, x/2, 2 raiz x, %] -->
-                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                <div class="row g-3 column-btn">
                     
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="1/2">½</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="1/2">½</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="x**">x²</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="x**">x²</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="2*2">√2</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="2*2">√2</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="/">÷</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="/">÷</button>
                     </div>
 
                 </div>
 
                 <!-- BOTOES OPERADORES [7, 8, 9, *] -->
-                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                <div class="row g-3 column-btn">
                     
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="7">7</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="7">7</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="8">8</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="8">8</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="9">9</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="9">9</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="x">×</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="x">×</button>
                     </div>
 
                 </div>
 
                 <!-- BOTOES OPERADORES [4, 5, 6, -] -->
-                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                <div class="row g-3 column-btn">
                     
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="4">4</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="4">4</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="5">5</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="5">5</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="6">6</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="6">6</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="-">—</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="-">—</button>
                     </div>
 
                 </div>
 
                 <!-- BOTOES OPERADORES [1, 2, 3, +] -->
-                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                <div class="row g-3 column-btn">
 
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="1">1</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="1">1</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="2">2</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="2">2</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="3">3</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="3">3</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-primary btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="+">+</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="+">+</button>
                     </div>
 
                 </div>
 
                 <!-- BOTOES OPERADORES [+/-, 0, ',', =] -->
-                <div class="row g-3 hgt-calc-100-per-6 wdt-absolute none-margin none-padding">
+                <div class="row g-3 column-btn">
 
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="+/-">+/-</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math="+/-">+/-</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="0">0</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light btn-contraste" data-math="0">0</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-white btn-regular btn-light hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math=",">,</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-light" data-math=",">,</button>
                     </div>
-                    <div class="col-3 none-margin none-padding btn-padding-default shadow-sm">
-                        <button type="button" class="btn btn-regular btn-secondary hgt-absolute wdt-absolute none-border-radius btn-border-default" data-math="=">=</button>
+                    <div class="col-3 shadow-sm">
+                        <button type="button" class="btn btn-regular btn-secondary" data-math="=">=</button>
                     </div>
 
                 </div>
