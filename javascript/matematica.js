@@ -32,13 +32,29 @@
 
         let mainInputDisplay = select(displayMain);
         let secondaryInputDisplay = select(displaySecondary);
-        let valInputMain = parseInt(mainInputDisplay.value);
-        let valInputSec = parseInt(secondaryInputDisplay.value);
+        let valInputMain = parseInt((mainInputDisplay.value).replace(/[.,R$]/g, ''));
+        let valInputSec = parseInt((secondaryInputDisplay.value).replace(/[.,R$]/g, ''));
         let clickMath = parseInt(secondaryInputDisplay.getAttribute('click-math'));
         let valPrimary = parseInt(secondaryInputDisplay.getAttribute('primary-math'));
         let valSecondary = parseInt(secondaryInputDisplay.getAttribute('secondary-math'));
+        let valHistory = parseInt(secondaryInputDisplay.getAttribute('history-math'));
         let valOperator = secondaryInputDisplay.getAttribute('type-math');
         let numPress = parseInt(value);
+        console.info([
+            {
+                "mainInputDisplay": mainInputDisplay,
+                "secondaryInputDisplay": secondaryInputDisplay,
+                "valInputMain": valInputMain,
+                "valInputSec": valInputSec,
+                "clickMath": clickMath,
+                "valPrimary": valPrimary,
+                "valSecondary": valSecondary,
+                "valHistory": valHistory,
+                "valOperator": valOperator,
+                "numPress": numPress,
+                "value":value
+            }
+        ]);
 
         /* APAGAR TUDO DENTRO DA DISPLAY MAIN */
         if (value == 'CE') {
@@ -57,9 +73,8 @@
                 secondaryInputDisplay.setAttribute('click-math', 1);
                 secondaryInputDisplay.setAttribute('primary-math', valPrimary + valInputMain);
                 secondaryInputDisplay.setAttribute('secondary-math', valPrimary);
-                console.log(valInputMain, valPrimary, valInputMain);
-                insertNumDisplaySecondary(`${valInputMain + valPrimary} + `);
                 mainInputDisplay.value = 0;
+                insertNumDisplaySecondary(`${valInputMain + valPrimary} + `);
                 insertNumDisplayMain(valPrimary + valInputMain);
 
             }
@@ -68,23 +83,36 @@
         }
         if (value == '=') {
 
-            let valMain = parseInt(mainInputDisplay.value);
-            let valPrimaryDisplaySecondary = parseInt(secondaryInputDisplay.getAttribute('primary-math'));
-            let valSecondaryDisplaySecondary = parseInt(secondaryInputDisplay.getAttribute('secondary-math'));
-            let operadordDisplaySecondary = secondaryInputDisplay.getAttribute('type-math')
-            let somaCalc = valSecondaryDisplaySecondary + valMain;
+            secondaryInputDisplay.setAttribute('primary-math', valPrimary + valSecondary);
+            mainInputDisplay.value = 0;
+            if (clickMath == 0) {
+                secondaryInputDisplay.setAttribute('click-math', 1);
+                secondaryInputDisplay.setAttribute('secondary-math', valInputMain);
+                mainInputDisplay.value = 0;
+                secondaryInputDisplay.setAttribute('history-math', valPrimary);
+                insertNumDisplaySecondary(`${formatNumInt(valPrimary)} + ${formatNumInt(valInputMain)} =`);
+                insertNumDisplayMain(valInputMain + valPrimary);
+            } else {
+                secondaryInputDisplay.setAttribute('history-math', valInputMain);
+                insertNumDisplaySecondary(`${formatNumInt(valInputMain)} + ${formatNumInt(valSecondary)} =`);
+                insertNumDisplayMain(valInputMain + valSecondary);
+            }
+            return;
 
-            secondaryInputDisplay.setAttribute('primary-math', somaCalc);
-            // secondaryInputDisplay.setAttribute('secondary-math', valMain);
+        }
+        if (value == 'BACKSPACE') {
 
-            console.log(valPrimaryDisplaySecondary, valMain, somaCalc, valSecondaryDisplaySecondary);
-            insertNumDisplaySecondary(`${valPrimaryDisplaySecondary} ${operadordDisplaySecondary} ${valSecondaryDisplaySecondary} =`);
-            insertNumDisplayMain(somaCalc)
+            let boxMain = JSON.stringify(valInputMain);
+            let newArray = replaceLastItem(boxMain);
+            mainInputDisplay.value = 0;
+            if (newArray >= 0) {
+                insertNumDisplayMain(newArray);
+            }
             return;
 
         }
         if (numPress && numPress >= 0 || numPress <= 9) {
-            
+
             if (clickMath == 1) {
                 secondaryInputDisplay.setAttribute('click-math', 0);
                 mainInputDisplay.value = 0;
@@ -117,13 +145,14 @@
 
         let mainInputDisplay = select(displayMain);
         let valueInputLast = mainInputDisplay.value;
-        let splitValueInputLast = valueInputLast.split('');
 
         // VERIFICA SE O NUMERO COMEÇA COM ZERO
         if (valueInputLast == 0) {
-            mainInputDisplay.value = value;
+            mainInputDisplay.value = formatNumInt(value);
         } else {
-            mainInputDisplay.value = valueInputLast += value;
+            let num = valueInputLast += value;
+            num = num.replace(/[.,R$]/g, '');
+            mainInputDisplay.value = formatNumInt(num);
         }
 
     }
@@ -135,15 +164,34 @@
 
     }
 
-    /* VERIFICA SE O VALOR E UM NUMERO INTEIRO */
-    const backspaceDisplayMain = (value) => {
-
-        console.log(typeValInt, typeValFloat)
+    /* REMOVER O ULTIMOS ITEM DE UM ARRAY */
+    const replaceLastItem = (data) => {
+        data = data.replace(/[.,R$]/g, '');
+        data = data.split('');
+        data.pop();
+        return (data.toString()).replace(/[,]/g, '');
 
     }
 
-    /* AO PRESSIONAR O TECLADO */
-    window.addEventListener('keypress', (e) => {
+    /* FORMATAR NUMERO */
+    const formatNumInt = (num) => {
+        num = new Intl.NumberFormat('pt-BR').format(num);
+        return num;
+    }
+
+    /* AO PRESSIONAR QUALQUER TECLAS COM OBJETIVO [BACKSPACE] */
+    window.addEventListener('keydown', (e) => {
+
+        let mainInputDisplay = select(displayMain);
+        let secondaryInputDisplay = select(displaySecondary);
+        let valInputMain = parseInt((mainInputDisplay.value).replace(/[.,R$]/g, ''));
+        let valInputSec = parseInt((secondaryInputDisplay.value).replace(/[.,R$]/g, ''));
+        let clickMath = parseInt(secondaryInputDisplay.getAttribute('click-math'));
+        let valPrimary = parseInt(secondaryInputDisplay.getAttribute('primary-math'));
+        let valSecondary = parseInt(secondaryInputDisplay.getAttribute('secondary-math'));
+        let valHistory = parseInt(secondaryInputDisplay.getAttribute('history-math'));
+        let valOperator = secondaryInputDisplay.getAttribute('type-math');
+        
 
         let isTrusted, altKey, charCode, code,
             ctrlKey, key, keyCode, shiftKey;
@@ -155,32 +203,39 @@
         key = e.key;
         keyCode = e.keyCode;
         shiftKey = e.shiftKey;
-
         let numPress = parseInt(key)
 
         if (numPress && numPress >= 0 || numPress <= 9) {
             validKey(numPress);
         }
-
-    });
-
-    /* AO PRESSIONAR QUALQUER TECLAS COM OBJETIVO [BACKSPACE] */
-    window.addEventListener('keyup', (e) => {
-
-        let isTrusted, altKey, charCode, code,
-            ctrlKey, key, keyCode, shiftKey;
-        isTrusted = e.isTrusted;
-        altKey = e.altKey;
-        charCode = e.charCode;
-        code = e.code;
-        ctrlKey = e.ctrlKey;
-        key = e.key;
-        keyCode = e.keyCode;
-        shiftKey = e.shiftKey;
-
+        /* AO CLICAR EM APAGAR NO TECLADO */
         if (key == 'Backspace') {
-            console.log('Apagado')
+
+            validKey('BACKSPACE');
+
         }
+        /* AO CLICLAR EM MAIS NO TECLADO */
+        if (key == '+') {
+            validKey('+');
+        }
+        /* AO CLICAR EM IGUAL NO TECLADO */
+        if (key == 'Enter') {
+            validKey('=');
+        }
+
+        /* LOG DE TECLAS PRESSIONADAS */
+        console.log([
+            {
+                "isTrusted": isTrusted,
+                "altKey": altKey,
+                "charCode": charCode,
+                "code": code,
+                "ctrlKey": ctrlKey,
+                "key": key,
+                "keyCode": keyCode,
+                "shiftKey": shiftKey
+            }
+        ])
 
     });
 
