@@ -59,15 +59,19 @@ body {
 /* NORMALIZA AS SECTION */
 section {
     width: var(--absolute-perc);
+    transition: all .2s ease-in-out;
 }
+
 .section-center {
     width: 70% !important;
     height: 90% !important;
     padding: 5px;
 }
+
 .section-calc-1 {
     position: relative;
     height: var(--absolute-perc);
+    
 }
 
 /* NORMALIZA O MAIN */
@@ -75,6 +79,7 @@ main {
     width: var(--absolute-perc);
     background: var(--white-secondary);
 }
+
 .main-center {
     display: flex;
     flex-direction: column;
@@ -91,17 +96,20 @@ main {
     justify-content: flex-end;
     flex-direction: column;
 }
-.display-master > div {
+
+.display-master>div {
     width: var(--absolute-perc);
     margin: var(--absolute-zero-size);
     padding: var(--absolute-zero-size);
 }
-.display-master > div > div {
+
+.display-master>div>div {
     height: var(--absolute-perc);
     margin: var(--absolute-zero-size);
     padding: var(--absolute-zero-size);
 }
-.display-master > div > div > input:nth-child(0) {
+
+.display-master>div>div>input:nth-child(0) {
     color: var(--gray-primary) !important;
     border: 0px transparent;
     background: transparent;
@@ -119,18 +127,21 @@ main {
 .btn-master {
     height: var(--height-70-perc);
 }
+
 .column-btn {
     height: calc(100%/6 - 0%);
     width: var(--absolute-perc);
     margin: var(--absolute-zero-size);
     padding: var(--absolute-zero-size);
 }
-.column-btn > div {
+
+.column-btn>div {
     margin: var(--absolute-zero-size);
     padding: var(--absolute-zero-size);
     padding: var(--size-space-btn);
 }
-.column-btn > div > button {
+
+.column-btn>div>button {
     font-size: var(--size-font-default);
     font-size: var(--size-font-default);
     height: var(--absolute-perc);
@@ -138,13 +149,16 @@ main {
     border-radius: var(--absolute-zero-size);
     border-radius: var(--border-radius-btn);
 }
-.column-btn > div > button.btn-contraste {
+
+.column-btn>div>button.btn-contraste {
     background: var(--white-primary)
 }
-.column-btn > div > button:hover {
+
+.column-btn>div>button:hover {
     background: var(--white-contraste-hover);
 }
-.column-btn:nth-last-child(1) > div:nth-last-child(1) > button:nth-last-child(1) {
+
+.column-btn:nth-last-child(1)>div:nth-last-child(1)>button:nth-last-child(1) {
     background: var(--black-primary);
     font-size: var(--size-font-default);
     height: var(--absolute-perc);
@@ -182,6 +196,7 @@ ul {
 .none-margin {
     margin: var(--absolute-zero-size);
 }
+
 .none-padding {
     padding: var(--absolute-zero-size);
 }
@@ -218,6 +233,7 @@ i.bi {
 .font-default {
     font-size: var(--size-font-default);
 }
+
 .font-ajust-display {
     font-size: 50pt;
 }
@@ -244,7 +260,8 @@ i.bi {
     justify-content: flex-start;
     margin: 10px 0 10px 10px;
 }
-.menubar-list > li {
+
+.menubar-list>li {
     background: var(--white-contraste);
     margin: 0 10px 10px 0;
     padding: 5px;
@@ -258,16 +275,51 @@ i.bi {
     flex-wrap: nowrap;
     width: fit-content;
 }
-.menubar-list > li > i {
+
+.menubar-list>li>i {
     margin: 5px;
 }
-.menubar-list > li > div {
+
+.menubar-list>li>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 10px 0 10px;
 }
-.menubar-list > li:hover {
+
+.menubar-list>li:hover {
     color: var(--white-primary);
     background: var(--black-primary);
+}
+
+/* RESPONSIVIDADE PARA TELAS MEDIAS */
+@media only screen and (max-width: 768px) {}
+
+/* RESPONSIVIDADE PARA TELAS PEQUENAS */
+@media only screen and (max-width: 480px) {}
+
+/* RESPONSIVIDADE PARA TELAS GRANDES */
+@media only screen and (min-width: 1200px) {
+    .section-calc-1 {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .display-master {
+        width: 40%;
+        height: 100%;
+    }
+
+    .btn-master {
+        height: 100%;
+        width: var(--height-70-perc);
+    }
+
+    .display-master > div {
+        width: var(--absolute-perc);
+        margin: var(--absolute-zero-size);
+        padding: var(--absolute-zero-size);
+        position: relative;
+    }
 }

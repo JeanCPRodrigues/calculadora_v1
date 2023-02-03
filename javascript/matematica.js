@@ -28,6 +28,23 @@
         }
     }
 
+    /* FUNCAO QUE CALCULA */
+    function CalcMath(operacao, num1, num2) {
+        switch (operacao) {
+            case "+":
+                return Math.round(num1 + num2);
+            case "-":
+                return Math.round(num1 - num2);
+            case "*":
+                return Math.round(num1 * num2);
+            case "/":
+                return Math.round(num1 / num2);
+            default:
+                return "Operação Inválida!";
+        }
+    }
+
+    /* VALIDA AS OPERACAO */
     const validKey = (value) => {
 
         let mainInputDisplay = select(displayMain);
@@ -40,6 +57,7 @@
         let valHistory = parseInt(secondaryInputDisplay.getAttribute('history-math'));
         let valOperator = secondaryInputDisplay.getAttribute('type-math');
         let numPress = parseInt(value);
+
         console.info([
             {
                 "mainInputDisplay": mainInputDisplay,
@@ -52,7 +70,7 @@
                 "valHistory": valHistory,
                 "valOperator": valOperator,
                 "numPress": numPress,
-                "value":value
+                "value": value
             }
         ]);
 
@@ -68,6 +86,7 @@
         }
         if (value == '+') {
 
+            secondaryInputDisplay.setAttribute('type-math', '+');
             if (clickMath == 0) {
 
                 secondaryInputDisplay.setAttribute('click-math', 1);
@@ -76,6 +95,22 @@
                 mainInputDisplay.value = 0;
                 insertNumDisplaySecondary(`${valInputMain + valPrimary} + `);
                 insertNumDisplayMain(valPrimary + valInputMain);
+
+            }
+            return;
+
+        }
+        if (value == '-') {
+
+            secondaryInputDisplay.setAttribute('type-math', '-');
+            if (clickMath == 0) {
+
+                secondaryInputDisplay.setAttribute('click-math', 1);
+                secondaryInputDisplay.setAttribute('primary-math', valPrimary + valInputMain);
+                secondaryInputDisplay.setAttribute('secondary-math', valPrimary);
+                mainInputDisplay.value = 0;
+                insertNumDisplaySecondary(`${valPrimary + valSecondary} - `);
+                insertNumDisplayMain(valPrimary + valSecondary);
 
             }
             return;
@@ -191,7 +226,7 @@
         let valSecondary = parseInt(secondaryInputDisplay.getAttribute('secondary-math'));
         let valHistory = parseInt(secondaryInputDisplay.getAttribute('history-math'));
         let valOperator = secondaryInputDisplay.getAttribute('type-math');
-        
+
 
         let isTrusted, altKey, charCode, code,
             ctrlKey, key, keyCode, shiftKey;
@@ -218,10 +253,23 @@
         if (key == '+') {
             validKey('+');
         }
+        /* AO CLICLAR EM MENOS NO TECLADO */
+        if (key == '-') {
+            validKey('-');
+        }
         /* AO CLICAR EM IGUAL NO TECLADO */
         if (key == 'Enter') {
             validKey('=');
         }
+        /* AO CLICAR APENAS EM DELETE */
+        if (key == 'Delete' && !ctrlKey) {
+            validKey('CE');
+        }
+        /* AO CLICAR EM CTRL + DELETE */
+        if (key == 'Delete' && ctrlKey) {
+            validKey('C');
+        }
+
 
         /* LOG DE TECLAS PRESSIONADAS */
         console.log([
@@ -243,6 +291,12 @@
     on('click', '.btn', function (e) {
         let keyMath = this.getAttribute('data-math');
         if (keyMath) { validKey(keyMath) }
+    });
+
+    /* AO CLICAR EM ESTILO DA CALCULADORA */
+    on('click', '.estilo-calculadora', function (e) {
+        let elemento = document.querySelector(".section-calc-1"); 
+        elemento.classList.toggle("section-center");
     });
 
 })()

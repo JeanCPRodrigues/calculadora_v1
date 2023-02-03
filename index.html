@@ -19,41 +19,46 @@
         <!-- CALCULADORA VERSAO 1 -->
         <section class="section-calc-1">
 
-            <!-- MENUBAR DA CALCULADORA -->
-            <div class="menubar-master">
-                <ul class="menubar-list">
-                    <li class="shadow-sm">
-                        <i class="bi bi-calculator-fill"></i>
-                        <div class="d-none">
-                            <span>Tipo Calculadora</span>
-                        </div>
-                    </li>
-                    <li class="shadow-sm d-none">
-                        <i class="bi bi-brightness-high-fill"></i>
-                        <div class="d-none">
-                            <span>Tema Escuro</span>
-                        </div>
-                    </li>
-                    <li class="shadow-sm d-none">
-                        <i class="bi bi-vr"></i>
-                        <div class="d-none">
-                            <span>Ajustar Tamanho</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
             <!-- DISPLAY -->
             <div class="display-master">
 
+                <!-- MENUBAR DA CALCULADORA -->
+                <div class="menubar-master">
+                    <ul class="menubar-list">
+                        <li class="shadow-sm estilo-calculadora">
+                            <i class="bi bi-calculator-fill"></i>
+                            <div class="d-none">
+                                <span>Tipo Calculadora</span>
+                            </div>
+                        </li>
+                        <li class="shadow-sm d-none">
+                            <i class="bi bi-brightness-high-fill"></i>
+                            <div class="d-none">
+                                <span>Tema Escuro</span>
+                            </div>
+                        </li>
+                        <li class="shadow-sm d-none">
+                            <i class="bi bi-vr"></i>
+                            <div class="d-none">
+                                <span>Ajustar Tamanho</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="row g-3">
                     <div class="col">
-                        <input id="displayCalculadoraV1" type="text" class="none-style-backgroud font-default form-control" placeholder="" disabled type-math="+" primary-math="0" secondary-math="0" history-math="0" click-math="0" style="color: var(--gray-primary) !important;">
+                        <input id="displayCalculadoraV1" type="text"
+                            class="none-style-backgroud font-default form-control" placeholder="" disabled type-math="+"
+                            primary-math="0" secondary-math="0" history-math="0" click-math="0"
+                            style="color: var(--gray-primary) !important;">
                     </div>
                 </div>
                 <div class="row g-3">
                     <div class="col" disabled>
-                        <input id="displayHistoryCalculadoraV1" type="text" class="display-calculadora none-style-backgroud text-end input-padding-default font-ajust-display form-control hgt-absolute none-margin none-padding none-border-radius" placeholder="0" value="0" aria-label="0" disabled>
+                        <input id="displayHistoryCalculadoraV1" type="text"
+                            class="display-calculadora none-style-backgroud text-end input-padding-default font-ajust-display form-control hgt-absolute none-margin none-padding none-border-radius"
+                            placeholder="0" value="0" aria-label="0" disabled>
                     </div>
                 </div>
 
@@ -61,10 +66,10 @@
 
             <!-- BOTOES -->
             <div class="btn-master">
-                
+
                 <!-- BOTOES OPERADORES [%, CE, C, BACKSPACE] -->
                 <div class="row g-3 column-btn">
-                    
+
                     <div class="col-3 shadow-sm">
                         <button type="button" class="btn btn-light" data-math="%"><i class="bi bi-percent"></i></button>
                     </div>
@@ -75,22 +80,29 @@
                         <button type="button" class="btn btn-light" data-math="C">C</button>
                     </div>
                     <div class="col-3 shadow-sm">
-                        <button type="button" class="btn btn-light" data-math="BACKSPACE"><i class="bi bi-backspace"></i></button>
+                        <button type="button" class="btn btn-light" data-math="BACKSPACE"><i
+                                class="bi bi-backspace"></i></button>
                     </div>
 
                 </div>
 
                 <!-- BOTOES OPERADORES [1/x, x/2, 2 raiz x, %] -->
                 <div class="row g-3 column-btn">
-                    
+
                     <div class="col-3 shadow-sm">
-                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="1/2">½</button>
+                        <button type="button"
+                            class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default"
+                            data-math="1/2">½</button>
                     </div>
                     <div class="col-3 shadow-sm">
-                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="x**">x²</button>
+                        <button type="button"
+                            class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default"
+                            data-math="x**">x²</button>
                     </div>
                     <div class="col-3 shadow-sm">
-                        <button type="button" class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default" data-math="2*2">√2</button>
+                        <button type="button"
+                            class="btn btn-light hgt-absolute wdt-absolute none-border-radius font-expo btn-border-default"
+                            data-math="2*2">√2</button>
                     </div>
                     <div class="col-3 shadow-sm">
                         <button type="button" class="btn btn-light" data-math="/">÷</button>
@@ -100,7 +112,7 @@
 
                 <!-- BOTOES OPERADORES [7, 8, 9, *] -->
                 <div class="row g-3 column-btn">
-                    
+
                     <div class="col-3 shadow-sm">
                         <button type="button" class="btn btn-light btn-contraste" data-math="7">7</button>
                     </div>
@@ -118,7 +130,7 @@
 
                 <!-- BOTOES OPERADORES [4, 5, 6, -] -->
                 <div class="row g-3 column-btn">
-                    
+
                     <div class="col-3 shadow-sm">
                         <button type="button" class="btn btn-light btn-contraste" data-math="4">4</button>
                     </div>
